@@ -9,11 +9,12 @@
             <el-form ref='loginformRef' :model='loginform' :rules="loginformrules" label-width="0px" class="login_form">
                 <!-- 用户名 -->
                 <el-form-item prop="username">
-                    <el-input v-model='loginform.username' prefix-icon="el-icon-user" ></el-input>
+                    <el-input v-model='loginform.username' prefix-icon="iconfont icon-users" ></el-input>
                 </el-form-item>
                 <!-- 密码 -->
                 <el-form-item  prop="password">
-                    <el-input v-model='loginform.password' prefix-icon="el-icon-lock" type="password" ></el-input>
+                    <el-input v-model='loginform.password' prefix-icon="iconfont icon-lock-fill
+                    " type="password" ></el-input>
                 </el-form-item>
                 <!-- 按钮 -->
                 <el-form-item class="btns">
