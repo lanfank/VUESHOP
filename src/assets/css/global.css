@@ -28,3 +28,16 @@ body,
 .el-pagination{
     margin-top: 15px;
 }
+
+.el-tag
+{
+    margin: 7px;
+}
+.bdbottom
+{
+    border-bottom: 1px solid #eee;
+}
+.bdtop
+{
+    border-top: 1px solid #eee;
+}
