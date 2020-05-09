@@ -41,3 +41,6 @@ body,
 {
     border-top: 1px solid #eee;
 }
+.el-cascader-menu{
+    height: 240px;
+}
