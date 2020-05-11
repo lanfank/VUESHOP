@@ -90,7 +90,8 @@ export default {
       columns: [
         {
           label: '分类名称',
-          prop: 'cat_name'
+          prop: 'cat_name',
+          width: '150px'
         },
         {
           label: '是否有效',
@@ -106,7 +107,8 @@ export default {
         {
           label: '操作',
           type: 'template',
-          template: 'opt'
+          template: 'opt',
+          width: '200px'
         }
       ],
       // 添加分类对话框的显示和隐藏状态
