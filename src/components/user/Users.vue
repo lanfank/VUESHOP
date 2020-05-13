@@ -151,6 +151,8 @@ export default {
       },
       // 显示在页面上的用户数据
       userlist: [],
+      // 用户总数
+      total: 0,
       // 添加用户的表单数据
       addForm: {
         username: '',
@@ -194,7 +196,7 @@ export default {
           { validator: checkMobile, trigger: 'blur' }
         ]
       },
-      total: 0,
+
       // 添加用户提示框的显示状态
       addDialogVisible: false,
       // 编辑用户提示框的显示状态

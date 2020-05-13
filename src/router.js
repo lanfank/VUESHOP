@@ -11,6 +11,7 @@ import Params from './components/goodmanager/Params.vue'
 import Categories from './components/goodmanager/Categories.vue'
 import Orders from './components/ordermanager/Orders.vue'
 import Reports from './components/statistic/Reports.vue'
+import Add from './components/goodmanager/Addgoods.vue'
 
 Vue.use(Router)
 
@@ -31,10 +32,10 @@ const router = new Router({
         { path: '/params', component: Params },
         { path: '/categories', component: Categories },
         { path: '/orders', component: Orders },
-        { path: '/reports', component: Reports }
+        { path: '/reports', component: Reports },
+        { path: '/goods/add', component: Add }
       ]
     }
-
   ]
 })
 
@@ -43,6 +44,7 @@ router.beforeEach((to, from, next) => {
   if (to.path === '/login') return next()
   // 接受当前的token值
   const tokenStr = window.sessionStorage.getItem('token')
+  // 如果没有token值回到登录界面
   if (!tokenStr) return next('/login')
   return next()
 })
