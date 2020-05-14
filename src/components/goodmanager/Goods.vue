@@ -11,7 +11,7 @@
       <!-- 搜索添加区域 -->
       <el-row :gutter="20">
         <el-col :span="8">
-          <el-input placeholder="请输入内容" v-model="queryInfo.query" @keyup.enter.native="getGoodsList" @keyup.delete.native="getGoodsList" clearable @clear="getGoodsList">
+          <el-input placeholder="请输入内容" v-model="queryInfo.query" @keyup.enter.native="getGoodsList" clearable @clear="getGoodsList">
             <el-button slot="append" icon="el-icon-search" @click="getGoodsList"></el-button>
           </el-input>
         </el-col>
@@ -82,6 +82,7 @@ export default {
       }
       this.goodLists = res.data.goods
       this.total = res.data.total
+      console.log(this.goodLists)
     },
     // 监听 修改每页显示多少条数据
     handleSizeChange(newsizenum) {
