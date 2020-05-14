@@ -259,7 +259,6 @@ export default {
         type: 'warning'
       }).catch(err => err)
       if (confirmResult !== 'confirm') { this.$msg.info('已取消删除') }
-      console.log('quern')
       const { data: res } = await this.$http.delete(`roles/${role.id}/rights/${rightId}`)
       if (res.meta.status !== 200) { return this.$msg.error('删除权限失败！') }
       //   刷新角色权限的数据
@@ -275,10 +274,8 @@ export default {
         return this.$msg.error('获取角色权限失败！')
       }
       this.rightlist = res.data
-      console.log(this.rightlist)
       //   通过递归函数，勾选当前角色已有权限
       this.getRoleRightById(role, this.rightDefKey)
-      console.log(this.rightDefKey)
       // 打开提示框
       this.setRightDialogVisible = true
     },

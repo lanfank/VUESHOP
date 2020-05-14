@@ -143,8 +143,6 @@ export default {
       }
       this.orderlist = res.data.goods
       this.total = res.data.total
-      console.log(this.orderlist)
-      console.log(this.queryInfo)
     },
     // 监视每页显示多少数据函数
     handleSizeChange(newSize) {

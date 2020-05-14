@@ -199,14 +199,11 @@ export default {
     },
     // 图片显示预览函数
     handlePreview(file) {
-      console.log(file)
       this.previewUrl = file.response.data.url
-      console.log(this.previewUrl)
       this.previewVisible = true
     },
     // 移除图片函数
     handleRemove(file) {
-      //   console.log(file)
       // 1、获取将要删除的图片的临时途径
       const filePath = file.response.data.tmp_path
       // 2、从 pics 数组中，找到这个图片对应的索引值
@@ -251,7 +248,6 @@ export default {
           this.addForm.attrs.push(newInfo)
         })
         form.attrs = this.addForm.attrs
-        console.log(form)
         // 2、向网络发起传输请求
         const { data: res } = await this.$http.post('goods', form)
         if (res.meta.status !== 201) {

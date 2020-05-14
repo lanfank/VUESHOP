@@ -67,7 +67,6 @@ export default {
     if (res.meta.status !== 200) {
       return this.$msg.error('获取表格数据失败！')
     }
-    console.log(res.data)
     // 将数据项目和配置数据进行合并
     const result = _.merge(this.options, res.data)
     // 使用刚指定的配置项和数据显示图表。
