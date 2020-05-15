@@ -6,15 +6,16 @@ module.exports = {
     config.when(process.env.NODE_ENV === 'production', config => {
       config.entry('app').clear().add('./src/main-prod.js')
       // 发布模式下将一些安装包只进行外部导入
-      config.set('externals', {
-        vue: 'Vue',
-        'vue-router': 'VueRouter',
-        axios: 'axios',
-        lodash: '_',
-        echarts: 'echarts',
-        'vue-quill-editor': 'VueQuillEditor',
-        nprogress: 'Nprogress'
-      })
+      // config.set('externals', {
+      //   'element-ui': 'ELEMENT',
+      //   vue: 'Vue',
+      //   'vue-router': 'VueRouter',
+      // axios: 'axios',
+      // lodash: '_',
+      // echarts: 'echarts'
+      //   'vue-quill-editor': 'VueQuillEditor',
+      //   nprogress: 'NProgress'
+      // })
       config.plugin('html').tap(args => {
         args[0].isProd = true
         return args
