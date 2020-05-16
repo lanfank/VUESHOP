@@ -100,9 +100,9 @@
             </el-dialog>
 
             <!-- 分配权限提示框 -->
-            <el-dialog title="用户权限编辑" :visible.sync="setRightDialogVisible" width="50%" @close="setRightDialogClosed">
+            <el-dialog title="用户权限编辑" :visible.sync="setRightDialogVisible" width="50%" @close="setRightDialogClosed" >
                 <el-tree :data="rightlist" :props="rightProps" node-key="id" :default-checked-keys="rightDefKey"
-                    show-checkbox default-expand-all ref="treeRef"></el-tree>
+                    show-checkbox default-expand-all ref="treeRef" ></el-tree>
                 <span slot="footer" class="dialog-footer">
                     <el-button @click="setRightDialogVisible = false">取 消</el-button>
                     <el-button type="primary" @click="editRight">确 定</el-button>
@@ -231,14 +231,12 @@ export default {
     },
     // 删除角色信息
     async delData(id) {
-      const ConfirmResult = await this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+      const ConfirmResult = await this.$confirm('此操作将永久删除该角色全部信息, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).catch(err => err)
-      if (ConfirmResult !== 'confirm') {
-        return this.$msg.info('已取消删除')
-      }
+      if (ConfirmResult !== 'confirm') { return this.$msg.info('已取消删除') }
       // 根据id向网络发起删除请求
       const { data: res } = await this.$http.delete('roles/' + id)
 
@@ -253,12 +251,12 @@ export default {
     // 根据id删除角色的某个权限
     async removeRightById(role, rightId) {
       // 确认是否删除
-      const confirmResult = await this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+      const confirmResult = await this.$confirm('此操作将永久删除该权限, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).catch(err => err)
-      if (confirmResult !== 'confirm') { this.$msg.info('已取消删除') }
+      if (confirmResult !== 'confirm') { return this.$msg.info('已取消删除') }
       const { data: res } = await this.$http.delete(`roles/${role.id}/rights/${rightId}`)
       if (res.meta.status !== 200) { return this.$msg.error('删除权限失败！') }
       //   刷新角色权限的数据
